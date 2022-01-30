@@ -339,6 +339,7 @@ class _Battle extends State<Battle> {
                     width: 110,
                     child: ElevatedButton(
                       onPressed: () {
+                        battlekeka();
                         Navigator.push(
                             context,
                             MaterialPageRoute(

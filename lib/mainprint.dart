@@ -22,6 +22,7 @@ class _Mymainrun extends State<Mymainrun> {
               ),
             ),
           ),
+          Top(),
           Positioned(
             top: 630,
             right: 150,
@@ -77,6 +78,8 @@ class _Mymainrun extends State<Mymainrun> {
                 shape: const StadiumBorder(),
               ),
               onPressed: () {
+                date.conditionmath += 1;
+                date.turn -= 1;
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -213,182 +216,6 @@ class _Mymainrun extends State<Mymainrun> {
                   ),
                 ),
               )),
-          Positioned(
-              top: 50,
-              left: 90,
-              child: DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.white,
-                  ),
-                  child: Container(
-                    height: 120,
-                    width: 60,
-                    child: Table(
-                      border: TableBorder.all(color: Colors.cyan),
-                      columnWidths: const <int, TableColumnWidth>{},
-                      defaultVerticalAlignment: TableCellVerticalAlignment.top,
-                      children: [
-                        TableRow(
-                          children: [
-                            Text("目標"),
-                          ],
-                          decoration:
-                              const BoxDecoration(color: Colors.lightBlue),
-                        )
-                      ],
-                    ),
-                  ))),
-          Positioned(
-              top: 50,
-              left: 150,
-              child: DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.black,
-                  ),
-                  child: Container(
-                    height: 250,
-                    width: 250,
-                    child: Table(
-                      border: TableBorder.all(color: Colors.cyan),
-                      columnWidths: const <int, TableColumnWidth>{},
-                      defaultVerticalAlignment: TableCellVerticalAlignment.top,
-                      children: [
-                        TableRow(
-                          children: [
-                            Text("メイクデビューに出走する"),
-                          ],
-                          decoration: const BoxDecoration(color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ))),
-          Positioned(
-              top: 50,
-              left: 20,
-              child: DefaultTextStyle(
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.cyan,
-                ),
-                child: Container(
-                  height: 100,
-                  width: 60,
-                  child: Table(
-                    border: TableBorder.all(color: Colors.cyan),
-                    columnWidths: const <int, TableColumnWidth>{},
-                    defaultVerticalAlignment: TableCellVerticalAlignment.top,
-                    children: [
-                      TableRow(
-                        children: [Text("${date.turn}\nターン")],
-                        decoration: const BoxDecoration(color: Colors.white),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-          Positioned(
-              top: 30,
-              left: 20,
-              child: DefaultTextStyle(
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.white,
-                ),
-                child: Container(
-                  height: 100,
-                  width: 60,
-                  child: Table(
-                    border: TableBorder.all(color: Colors.cyan),
-                    columnWidths: const <int, TableColumnWidth>{},
-                    defaultVerticalAlignment: TableCellVerticalAlignment.top,
-                    children: [
-                      TableRow(
-                        children: [Text("残り")],
-                        decoration: const BoxDecoration(color: Colors.cyan),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-          Stack(
-            children: <Widget>[
-              Positioned(
-                top: 100,
-                right: 20,
-                child: DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.white,
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(5.0),
-                    width: 70,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.orange),
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Container(
-                      child: const Text("調子"),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 100,
-                left: 80,
-                child: DefaultTextStyle(
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.grey,
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(5.0),
-                    width: 225,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Container(
-                      child: const Text("体力"),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 103,
-                right: 90,
-                child: Container(
-                  padding: const EdgeInsets.all(5.0),
-                  width: date.HP,
-                  height: 25,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: FractionalOffset.topLeft,
-                      end: FractionalOffset.bottomRight,
-                      colors: [
-                        Colors.lightBlue.withOpacity(0.6),
-                        Colors.red.withOpacity(1),
-                      ],
-                    ),
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );

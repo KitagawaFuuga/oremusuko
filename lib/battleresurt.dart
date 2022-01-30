@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uma/talk.dart';
+import 'other.dart';
 
 class battleresu extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class battleresu extends StatelessWidget {
             top: 180,
             left: 60,
             child: Text(
-              'N着',
+              '${date.resultmath}着',
               style: TextStyle(fontSize: 80, color: Colors.yellow),
             ),
           ),

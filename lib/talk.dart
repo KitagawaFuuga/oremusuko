@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
+import 'talkother.dart';
 import 'package:uma/mainprint.dart';
 
 class talk extends StatefulWidget {
@@ -8,13 +9,6 @@ class talk extends StatefulWidget {
 }
 
 class _talk extends State<talk> {
-  var talkword = <String>[
-    '1111111111111111111111',
-    '222222222222222222222222',
-    '333333333333333333333333333333',
-    '44444444444444444444444444444444444',
-    '5555555555555555555555555555555555555555555555'
-  ];
   String print = 'スタート', name = '北川　楓雅';
   int kazu = 0;
 
@@ -76,9 +70,9 @@ class _talk extends State<talk> {
         ),
         onTap: () => {
           setState(() {
-              print = talkword[kazu];
+              print = talktalk.ranning[kazu];
               kazu = kazu + 1;
-              if (kazu >= talkword.length)
+              if (kazu >= talktalk.ranning.length)
                 Navigator.push(
                   context,
                   MaterialPageRoute(
