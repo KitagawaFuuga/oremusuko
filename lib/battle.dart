@@ -137,7 +137,7 @@ class _Battle extends State<Battle> {
             top: 150,
             right: 60,
             child: Text(
-             date.speed.toString(),
+              date.speed.toString(),
               style: TextStyle(fontSize: 20),
             ),
           ),
@@ -208,11 +208,7 @@ class _Battle extends State<Battle> {
             top: 340,
             right: 100,
             child: Column(
-              children: [
-                Text('A'),
-                Text('A'),
-                Text('A')
-              ],
+              children: [Text('A'), Text('A'), Text('A')],
             ),
           ),
           Positioned(
@@ -235,8 +231,7 @@ class _Battle extends State<Battle> {
           Positioned(
             top: 470,
             right: 10,
-            child: Row(
-              children: [
+            child: Row(children: [
               Container(
                 height: 45,
                 width: 45,
@@ -279,12 +274,10 @@ class _Battle extends State<Battle> {
               ),
             ]),
           ),
-          
           Positioned(
             top: 490,
             right: 10,
-            child: Row(
-              children: [
+            child: Row(children: [
               Container(
                 height: 45,
                 width: 45,
@@ -340,6 +333,7 @@ class _Battle extends State<Battle> {
                     child: ElevatedButton(
                       onPressed: () {
                         battlekeka();
+                        date.battlerun = false;
                         Navigator.push(
                             context,
                             MaterialPageRoute(

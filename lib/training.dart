@@ -154,7 +154,7 @@ class _Training extends State<Training> {
                             date.skill += 5;
                             date.turn -= 1;
                             if (date.HP > 0) {
-                              date.HP -= 30;
+                              date.HP -= 21;
                             } else {
                               date.HP = 1;
                             }
@@ -167,7 +167,7 @@ class _Training extends State<Training> {
                                 ),
                               );
                             } else {
-                               runevent();
+                              runevent();
                               if (date.talkingevent) {
                                 Navigator.push(
                                   context,
@@ -186,6 +186,7 @@ class _Training extends State<Training> {
                             }
                           } else {
                             success = false;
+                            trainingFaulure();
                             date.turn -= 1;
                             Navigator.push(
                               context,
@@ -220,7 +221,7 @@ class _Training extends State<Training> {
                             date.skill += 5;
                             date.turn -= 1;
                             if (date.HP > 0) {
-                              date.HP -= 30;
+                              date.HP -= 19;
                             } else {
                               date.HP = 1;
                             }
@@ -233,7 +234,7 @@ class _Training extends State<Training> {
                                 ),
                               );
                             } else {
-                               runevent();
+                              runevent();
                               if (date.talkingevent) {
                                 Navigator.push(
                                   context,
@@ -252,6 +253,7 @@ class _Training extends State<Training> {
                             }
                           } else {
                             success = false;
+                            trainingFaulure();
                             date.turn -= 1;
                             Navigator.push(
                               context,
@@ -286,7 +288,7 @@ class _Training extends State<Training> {
                             date.skill += 5;
                             date.turn -= 1;
                             if (date.HP > 0) {
-                              date.HP -= 30;
+                              date.HP -= 20;
                             } else {
                               date.HP = 1;
                             }
@@ -299,7 +301,6 @@ class _Training extends State<Training> {
                                 ),
                               );
                             } else {
-                              
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -309,6 +310,7 @@ class _Training extends State<Training> {
                             }
                           } else {
                             success = false;
+                            trainingFaulure();
                             date.turn -= 1;
                             Navigator.push(
                               context,
@@ -344,7 +346,7 @@ class _Training extends State<Training> {
                             date.skill += 5;
                             date.turn -= 1;
                             if (date.HP > 0) {
-                              date.HP -= 30;
+                              date.HP -= 22;
                             } else {
                               date.HP = 1;
                             }
@@ -376,6 +378,7 @@ class _Training extends State<Training> {
                             }
                           } else {
                             success = false;
+                            trainingFaulure();
                             date.turn -= 1;
                             Navigator.push(
                               context,
@@ -409,7 +412,7 @@ class _Training extends State<Training> {
                             date.smart += 20;
                             date.skill += 5;
                             date.turn -= 1;
-                            date.HP += 15;
+                            date.HP += 5;
                           } else {
                             Navigator.push(
                               context,
@@ -420,6 +423,7 @@ class _Training extends State<Training> {
                           }
                           if (date.turn == 0) {
                             date.turn = 15;
+                            date.battlerun = true;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -427,22 +431,22 @@ class _Training extends State<Training> {
                               ),
                             );
                           } else {
-                             runevent();
-                              if (date.talkingevent) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => talk(),
-                                  ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Mymainrun(),
-                                  ),
-                                );
-                              }
+                            runevent();
+                            if (date.talkingevent) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => talk(),
+                                ),
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Mymainrun(),
+                                ),
+                              );
+                            }
                           }
                         },
                       );
@@ -483,8 +487,16 @@ class _Training extends State<Training> {
 }
 
 void randomtrain() {
-  int ans = Random().nextInt(date.HP.toInt());
-  if (ans < 20) {
+  double Failure;
+  if(date.HP <= 55){
+    Failure = 1/17 * ((date.HP - 50) * (date.HP - 50)) ;
+  }else{
+    Failure = 0;
+  }
+  int radom = Random().nextInt(100);
+  print(Failure);
+  
+  if (Failure >= radom) {
     success = false;
   } else {
     success = true;

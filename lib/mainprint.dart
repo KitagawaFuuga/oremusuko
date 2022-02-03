@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'talk.dart';
 import 'training.dart';
 import 'other.dart';
+import 'talkother.dart';
 
 class Mymainrun extends StatefulWidget {
   @override
@@ -56,7 +57,7 @@ class _Mymainrun extends State<Mymainrun> {
                 shape: const StadiumBorder(),
               ),
               onPressed: () {
-                date.HP += 90;
+                sleeping();
                 Navigator.push(
                   context,
                   MaterialPageRoute(

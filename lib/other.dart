@@ -1,22 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class date {
-  static int speed = 200,
+class date { //? ステータスやターン数、コンディションとコンディションのための数字などをまとめたやつ
+  static int speed = 200, // スピードなどのステータス
       stamina = 200,
       power = 200,
       guts = 200,
       smart = 200,
       skill = 200,
-      turn = 15,
-      conditionmath = 2,
-      resultmath = 1;
-  static double HP = 190;
-  static List<String> condistions = ['絶不調', '不調', '普通', '好調', '絶好調'];
-  static bool talkingevent = false;
+      turn = 15, // ターン数
+      conditionmath = 2, // コンディション管理の数字
+      resultmath = 1; // 順位を決める数字
+      
+  static double HP = 100,// HP
+  MaxHP = 100;
+  static List<String> condistions = ['絶不調', '不調', '普通', '好調', '絶好調']; // コンディションを管理する配列
+  static bool battlerun = false;
+  static bool talkingevent = false; //! ???????
 }
 
-class Top extends StatelessWidget {
+class Top extends StatelessWidget { //? 上にあるなんか調子とか体力とかを表しているやつ
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,7 +187,7 @@ class Top extends StatelessWidget {
                 right: 90,
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
-                  width: date.HP,
+                  width: date.HP * 1.9,
                   height: 25,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -207,7 +210,7 @@ class Top extends StatelessWidget {
     );
   }
 
-  Color setColors() {
+  Color setColors() { //? 調子により色を決める関数
     if (date.conditionmath == 2) {
       return Colors.green;
     } else if (date.conditionmath == 1) {
@@ -222,19 +225,19 @@ class Top extends StatelessWidget {
   }
 }
 
-void conditionup() {
+void conditionup() { //? 調子を上げる関数
   if (date.conditionmath < 4) {
     date.conditionmath += 1;
   }
 }
 
-void conditiondown() {
+void conditiondown() { //? 調子を下げる関数
   if (date.conditionmath > 0) {
     date.conditionmath -= 1;
   }
 }
 
-void battlekeka(){
+void battlekeka(){ //? バトルの結果を計算するやつ
   int total = date.speed + date.guts + date.power + date.smart + date.stamina;
   if(total > 1200){
     date.resultmath = 1;

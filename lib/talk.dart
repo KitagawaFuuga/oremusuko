@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
+import 'package:uma/battle.dart';
+import 'package:uma/other.dart';
 import 'talkother.dart';
 import 'package:uma/mainprint.dart';
 
@@ -69,16 +71,27 @@ class _talk extends State<talk> {
           ],
         ),
         onTap: () => {
-          setState(() {
+          setState(
+            () {
               print = talktalk.ranning[kazu];
               kazu = kazu + 1;
-              if (kazu >= talktalk.ranning.length)
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Mymainrun(),
-                  ),
-                );
+              if (kazu >= talktalk.ranning.length) {
+                if (date.battlerun) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Battle(),
+                    ),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Mymainrun(),
+                    ),
+                  );
+                }
+              }
             },
           ),
         },
